@@ -6,3 +6,14 @@ class Article:
         self.word_count = word_count
         author.articles.append(self)
         magazine.articles.append(self)
+
+    @property
+    def word_count(self):
+        return self._word_count
+    
+    @word_count.setter
+    def word_count(self, new_wc):
+        if new_wc >= 0:
+            self._word_count = new_wc
+        else:
+            raise ValueError('word count cannot be negative')
